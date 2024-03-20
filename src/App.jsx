@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Posts from "./pages/Posts";
+import History from "./pages/History";
 import PostDetail from "./components/PostDetail";
 
 const App = () => {
@@ -29,10 +30,13 @@ const App = () => {
                 <Link to="/about">About</Link>
                 <Link to="/post">Post</Link>
             </header>
+
             <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
+                    <Route path="/about" element={<About />}>
+                        <Route path="history" element={<History />} />
+                    </Route>
                     <Route path="/post" element={<Posts posts={posts} />} />
                     <Route
                         path="/post/:id"
